@@ -7,7 +7,7 @@ public class Caminhao extends Veiculo {
     private static final double CAPACIDADE_BASE_KG = 3000.0;
     private static final double ACRESCIMO_POR_EIXO_KG = 750.0;
 
-    private int eixos;
+    private final int eixos;
 
     public Caminhao(String placa) {
         this(placa, EIXOS_PADRAO);
@@ -15,31 +15,27 @@ public class Caminhao extends Veiculo {
 
     public Caminhao(String placa, int eixos) {
         super(placa, CAPACIDADE_BASE_KG);
-        setEixos(eixos);
+        this.eixos = ajustarEixos(eixos);
+        setCapacidadeKg(calcularCapacidade(this.eixos));
     }
 
     public int getEixos() {
         return eixos;
     }
 
-    private void setEixos(int eixos) {
+    private static int ajustarEixos(int eixos) {
         if (eixos < EIXOS_MINIMOS) {
             System.out.println("Erro: caminhao deve ter no minimo 2 eixos. Ajustado para 2.");
-            this.eixos = EIXOS_PADRAO;
-            setCapacidadeKg(calcularCapacidadePadrao(this.eixos));
-            return;
+            return EIXOS_PADRAO;
         }
         if (eixos > EIXOS_MAXIMOS) {
             System.out.println("Erro: caminhao deve ter no maximo 6 eixos. Ajustado para 6.");
-            this.eixos = EIXOS_MAXIMOS;
-            setCapacidadeKg(calcularCapacidadePadrao(this.eixos));
-            return;
+            return EIXOS_MAXIMOS;
         }
-        this.eixos = eixos;
-        setCapacidadeKg(calcularCapacidadePadrao(eixos));
+        return eixos;
     }
 
-    private double calcularCapacidadePadrao(int eixos) {
+    private static double calcularCapacidade(int eixos) {
         return CAPACIDADE_BASE_KG + (eixos - EIXOS_MINIMOS) * ACRESCIMO_POR_EIXO_KG;
     }
 }

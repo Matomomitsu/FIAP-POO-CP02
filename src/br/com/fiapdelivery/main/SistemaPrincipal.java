@@ -28,6 +28,12 @@ public class SistemaPrincipal {
         System.out.println("Caminhao com mais eixos: placa=" + caminhaoComMaisEixos.getPlaca() + ", capacidadeKg=" + caminhaoComMaisEixos.getCapacidadeKg() + ", eixos=" + caminhaoComMaisEixos.getEixos());
         System.out.println("Moto: placa=" + motoPadrao.getPlaca() + ", capacidadeKg=" + motoPadrao.getCapacidadeKg() + ", bau=" + motoPadrao.hasBau());
         System.out.println("Moto com bau: placa=" + motoComBau.getPlaca() + ", capacidadeKg=" + motoComBau.getCapacidadeKg() + ", bau=" + motoComBau.hasBau());
+        System.out.println("\n=== Teste adicionar/remover bau ===");
+        System.out.println("Moto padrao antes: capacidadeKg=" + motoPadrao.getCapacidadeKg() + ", bau=" + motoPadrao.hasBau());
+        motoPadrao.adicionarBau();
+        System.out.println("Moto padrao apos adicionar bau: capacidadeKg=" + motoPadrao.getCapacidadeKg() + ", bau=" + motoPadrao.hasBau());
+        motoPadrao.removerBau();
+        System.out.println("Moto padrao apos remover bau: capacidadeKg=" + motoPadrao.getCapacidadeKg() + ", bau=" + motoPadrao.hasBau());
 
         System.out.println("\n=== Pedido (antigo Pacote) ===");
         System.out.println("Pedido leve: codigo=" + pedidoLeve.getCodigo() + ", pesoKg=" + pedidoLeve.getPesoKg() + ", status=" + pedidoLeve.getStatus());

@@ -13,7 +13,7 @@ public class Veiculo {
         return placa;
     }
 
-    public void setPlaca(String placa) {
+    private void setPlaca(String placa) {
         if (!validarPlaca(placa)) {
             System.out.println("Erro: placa invalida. Use formato antigo (AAA1234) ou Mercosul (AAA1A23).");
             return;

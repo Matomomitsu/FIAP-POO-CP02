@@ -14,26 +14,29 @@ public class Moto extends Veiculo {
     public Moto(String placa, boolean hasBau) {
         super(placa, CAPACIDADE_BASE_KG);
         setHasBau(hasBau);
+        double capacidade = calcularCapacidade();
+        setCapacidadeKg(capacidade);
     }
 
     public boolean hasBau() {
-        return hasBau;
+        return this.hasBau;
     }
 
     public void adicionarBau() {
         setHasBau(true);
+        setCapacidadeKg(calcularCapacidade());
     }
 
     public void removerBau() {
         setHasBau(false);
+        setCapacidadeKg(calcularCapacidade());
     }
 
     private void setHasBau(boolean hasBau) {
         this.hasBau = hasBau;
-        setCapacidadeKg(calcularCapacidadePadrao(hasBau));
     }
 
-    private double calcularCapacidadePadrao(boolean hasBau) {
-        return hasBau ? CAPACIDADE_BASE_KG + ACRESCIMO_BAU_KG : CAPACIDADE_BASE_KG;
+    private double calcularCapacidade() {
+        return hasBau() ? CAPACIDADE_BASE_KG + ACRESCIMO_BAU_KG : CAPACIDADE_BASE_KG;
     }
 }
