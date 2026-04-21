@@ -46,8 +46,11 @@ public class Entrega {
             System.out.println("Erro: entrega invalida, pedido e veiculo devem ser definidos.");
             return;
         }
+
         System.out.println("Levando pedido " + pedido.getCodigo() +
                 " no veiculo " + veiculo.getPlaca() +
                 " (" + veiculo.getClass().getSimpleName() + ")");
+
+        pedido.alterarStatus("Entregue");
     }
 }

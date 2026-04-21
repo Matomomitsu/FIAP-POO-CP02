@@ -8,7 +8,7 @@ public class Pedido {
     public Pedido(String codigo, double pesoKg, String status) {
         setCodigo(codigo);
         setPesoKg(pesoKg);
-        setStatus(status);
+        alterarStatus(status);
     }
 
     public String getCodigo() {
@@ -55,6 +55,23 @@ public class Pedido {
     }
 
     public void alterarStatus(String novoStatus) {
+        if (novoStatus == null || novoStatus.trim().isEmpty()) {
+            System.out.println("Erro: status deve ser preenchido.");
+            return;
+        }
+
+        if (status != null && status.equalsIgnoreCase("Entregue")) {
+            System.out.println("Erro: pedido ja esta entregue, status nao pode ser alterado.");
+            return;
+        }
+
+        if (!novoStatus.equalsIgnoreCase("Entregue") &&
+            !novoStatus.equalsIgnoreCase("Pendente") &&
+            !novoStatus.equalsIgnoreCase("A Caminho")) {
+            System.out.println("Erro: status invalido. Use 'Pendente', 'A Caminho' ou 'Entregue'.");
+            return;
+        }
+
         setStatus(novoStatus);
     }
 

@@ -45,7 +45,6 @@ public class SistemaPrincipal {
         System.out.println("\n=== Teste de erro: pedido muito pesado para o veiculo ===");
         tentativaEntregaInvalida.realizarEntrega();
 
-        pedidoLeve.alterarStatus("Entregue");
         System.out.println("\nStatus atualizado do pedido " + pedidoLeve.getCodigo() + ": " + pedidoLeve.getStatus());
     }
 }
