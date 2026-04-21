@@ -14,7 +14,7 @@ public class SistemaPrincipal {
         Moto motoPadrao = new Moto("XYZ1234");
         Moto motoComBau = new Moto("XYZ9K88", true);
 
-        Pedido pedidoLeve = new Pedido("BRA-0999");
+        Pedido pedidoLeve = new Pedido("BRA-0999", 10.0, "Pendente");
         Pedido pedidoPesado = new Pedido("CXS-7777", 1200.0, "Pendente");
         Pedido pedidoMuitoPesado = new Pedido("PES-9999", 9999.0, "Pendente");
 

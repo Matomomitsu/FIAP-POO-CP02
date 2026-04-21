@@ -1,17 +1,9 @@
 package br.com.fiapdelivery.model;
 
 public class Pedido {
-    private static final double PESO_PADRAO_KG = 1.0;
-    private static final String STATUS_PADRAO = "Pendente";
-    private static final String CODIGO_PADRAO = "AAA-0000";
-
-    private String codigo = CODIGO_PADRAO;
-    private double pesoKg = PESO_PADRAO_KG;
-    private String status = STATUS_PADRAO;
-
-    public Pedido(String codigo) {
-        this(codigo, PESO_PADRAO_KG, STATUS_PADRAO);
-    }
+    private String codigo;
+    private double pesoKg;
+    private String status;
 
     public Pedido(String codigo, double pesoKg, String status) {
         setCodigo(codigo);
