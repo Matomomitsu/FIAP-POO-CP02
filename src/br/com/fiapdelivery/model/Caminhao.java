@@ -2,12 +2,12 @@ package br.com.fiapdelivery.model;
 
 public class Caminhao extends Veiculo {
     private static final int EIXOS_MINIMOS = 2;
-    private static final int EIXOS_MAXIMOS = 6;
+    private static final int EIXOS_MAXIMOS = 9;
     private static final int EIXOS_PADRAO = 2;
     private static final double CAPACIDADE_BASE_KG = 3000.0;
     private static final double ACRESCIMO_POR_EIXO_KG = 750.0;
 
-    private final int eixos;
+    private int eixos;
 
     public Caminhao(String placa) {
         this(placa, EIXOS_PADRAO);
@@ -15,7 +15,7 @@ public class Caminhao extends Veiculo {
 
     public Caminhao(String placa, int eixos) {
         super(placa, CAPACIDADE_BASE_KG);
-        this.eixos = ajustarEixos(eixos);
+        setEixos(eixos);
         setCapacidadeKg(calcularCapacidade(this.eixos));
     }
 
@@ -23,19 +23,22 @@ public class Caminhao extends Veiculo {
         return eixos;
     }
 
-    private static int ajustarEixos(int eixos) {
+    private void setEixos(int eixos) {
         if (eixos < EIXOS_MINIMOS) {
             System.out.println("Erro: caminhao deve ter no minimo 2 eixos. Ajustado para 2.");
-            return EIXOS_PADRAO;
+            this.eixos = EIXOS_PADRAO;
+            return;
         }
         if (eixos > EIXOS_MAXIMOS) {
-            System.out.println("Erro: caminhao deve ter no maximo 6 eixos. Ajustado para 6.");
-            return EIXOS_MAXIMOS;
+            System.out.println("Erro: caminhao deve ter no maximo 9 eixos. Ajustado para 9.");
+            this.eixos = EIXOS_MAXIMOS;
+            return;
         }
-        return eixos;
+
+        this.eixos = eixos;
     }
 
-    private static double calcularCapacidade(int eixos) {
+    private double calcularCapacidade(int eixos) {
         return CAPACIDADE_BASE_KG + (eixos - EIXOS_MINIMOS) * ACRESCIMO_POR_EIXO_KG;
     }
 }
