@@ -10,7 +10,7 @@ public class SistemaPrincipal {
     public static void main(String[] args) {
         Veiculo veiculoPadrao = new Veiculo("AAA1A23", 50.0);
         Caminhao caminhaoPadrao = new Caminhao("BRA1234");
-        Caminhao caminhaoComMaisEixos = new Caminhao("ABC1D23", 6);
+        Caminhao caminhaoComMaisEixos = new Caminhao("ABC1D23", 9);
         Moto motoPadrao = new Moto("XYZ1234");
         Moto motoComBau = new Moto("XYZ9K88", true);
 
